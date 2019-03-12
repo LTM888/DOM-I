@@ -39,40 +39,30 @@ const siteContent = {
 };
 
 // Example: Update the img src for the logo
+
+// Navation
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"]);
-
-console.log(logo);
-
-let allNav = document.querySelectorAll('nav');
-console.log(allNav);
-
-let servicesNavItem = document.querySelectorAll('a');
-console.log(servicesNavItem[0]);
+logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 
-let productNavItem = document.querySelectorAll('a');
-console.log(productNavItem[1]);
+let allNav = document.querySelectorAll('nav a');
+allNav.forEach((link, i) => {
+  link.textContent = siteContent.nav[`nav-item-${i + 1}`]
+})
 
-let visionNavItem = document.querySelectorAll('a');
-console.log(visionNavItem[2]);
 
-let featuresNavItem = document.querySelectorAll('a');
-console.log(featuresNavItem[3]);
-let aboutNavItem = document.querySelectorAll('a');
-console.log(aboutNavItem[4]);
+// Header 
 
-let contactNavItem = document.querySelectorAll('a');
-console.log(contactNavItem[5]);
-
-let h1 =document.querySelector('h1');
-console.log(h1);
+let h1 = document.querySelector('h1');
+h1.textContent = siteContent.cta.h1;
 
 let btnWithID = document.querySelector('button');
-console.log(btnWithID);
+btnWithID.textContent = siteContent.cta.button;
 
-let ctaImg = document.getElementById ('cta-img');
+let ctaImg = document.getElementById('cta-img');
 console.log(ctaImg);
+
+ctaImg.setAttribute('src', siteContent["cta"]["img-src"])
 
 let mainContent = document.querySelector('.main-content');
 console.log(mainContent);
@@ -81,7 +71,7 @@ let topContent = document.querySelector('.top-content');
 console.log(topContent);
 
 let hFeatures = document.getElementsByTagName('h4');
-console.log(hFeatures[0]);
+hFeatures.textContent = siteContent.mainContent.features-h4;
 
 let pFeatures = document.getElementsByTagName('p');
 console.log(pFeatures[0]);
@@ -92,5 +82,32 @@ console.log(hAbout[1]);
 let pAbout = document.getElementsByTagName('p');
 console.log(pAbout[1]);
 
-let middleImg = document.getElementById('.middle-img');
-console.log(pAbout);
+let middleImg = document.getElementById('middle-img');
+console.log(middleImg);
+
+let bottomContent = document.querySelector('.bottom-content');
+console.log(bottomContent);
+
+let hServices = document.getElementsByTagName('h4');
+console.log(hServices[2])
+
+let pServices = document.getElementsByTagName('p');
+console.log(pFeatures[2]);
+
+let hProduct = document.getElementsByTagName('h4');
+console.log(hProduct[3]);
+
+let pProduct = document.getElementsByTagName('p');
+console.log(pProduct[3]);
+
+let hVision = document.getElementsByTagName('h4');
+console.log(hVision[4]);
+
+let pVision = document.getElementsByTagName('p');
+console.log(pVision[4]);
+
+let contact = document.querySelector('.contact');
+console.log(contact);
+
+let hContact = document.getElementsByTagName('h4');
+console.log(hContact[5]);
