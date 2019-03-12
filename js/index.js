@@ -64,50 +64,47 @@ console.log(ctaImg);
 
 ctaImg.setAttribute('src', siteContent["cta"]["img-src"])
 
-let mainContent = document.querySelector('.main-content');
-console.log(mainContent);
 
-let topContent = document.querySelector('.top-content');
-console.log(topContent);
 
-let hFeatures = document.getElementsByTagName('h4');
-hFeatures.textContent = siteContent.mainContent.features-h4;
+let textContentList = document.querySelectorAll(".text-content");
 
-let pFeatures = document.getElementsByTagName('p');
-console.log(pFeatures[0]);
+textContentList[0].getElementsByTagName("h4")[0].innerHTML = siteContent["main-content"]["features-h4"];
+textContentList[0].getElementsByTagName("p")[0].innerHTML = siteContent["main-content"]["features-content"];
+textContentList[1].getElementsByTagName("h4")[0].innerHTML = siteContent["main-content"]["about-h4"];
+textContentList[1].getElementsByTagName("p")[0].innerHTML = siteContent["main-content"]["about-content"];
+textContentList[2].getElementsByTagName("h4")[0].innerHTML = siteContent["main-content"]["services-h4"];
+textContentList[2].getElementsByTagName("p")[0].innerHTML = siteContent["main-content"]["services-content"];
+textContentList[3].getElementsByTagName("h4")[0].innerHTML = siteContent["main-content"]["product-h4"];
+textContentList[3].getElementsByTagName("p")[0].innerHTML = siteContent["main-content"]["product-content"];
+textContentList[4].getElementsByTagName("h4")[0].innerHTML = siteContent["main-content"]["vision-h4"];
+textContentList[4].getElementsByTagName("p")[0].innerHTML = siteContent["main-content"]["vision-content"];
 
-let hAbout = document.getElementsByTagName('h4');
-console.log(hAbout[1]);
+let middleImg = document.getElementById("middle-img");
+middleImg.setAttribute('src', siteContent["main-content"]["middle-img-src"])
 
-let pAbout = document.getElementsByTagName('p');
-console.log(pAbout[1]);
+// Update Contact
+let contact = document.getElementsByClassName("contact")[0];
+contact.getElementsByTagName("h4")[0].innerHTML = siteContent["contact"]["contact-h4"]
+contact.getElementsByTagName("p")[0].innerHTML = siteContent["contact"]["address"]
+contact.getElementsByTagName("p")[1].innerHTML = siteContent["contact"]["phone"]
+contact.getElementsByTagName("p")[2].innerHTML = siteContent["contact"]["email"]
 
-let middleImg = document.getElementById('middle-img');
-console.log(middleImg);
+// Update Footer
+let footer = document.querySelector("footer");
+footer.getElementsByTagName("p")[0].innerHTML = siteContent["footer"]["copyright"];
 
-let bottomContent = document.querySelector('.bottom-content');
-console.log(bottomContent);
+// Add New Content
+// Change navigation text color
+allNav.forEach((link, i) => {
+  link.style.color = "green";
+})
 
-let hServices = document.getElementsByTagName('h4');
-console.log(hServices[2])
-
-let pServices = document.getElementsByTagName('p');
-console.log(pFeatures[2]);
-
-let hProduct = document.getElementsByTagName('h4');
-console.log(hProduct[3]);
-
-let pProduct = document.getElementsByTagName('p');
-console.log(pProduct[3]);
-
-let hVision = document.getElementsByTagName('h4');
-console.log(hVision[4]);
-
-let pVision = document.getElementsByTagName('p');
-console.log(pVision[4]);
-
-let contact = document.querySelector('.contact');
-console.log(contact);
-
-let hContact = document.getElementsByTagName('h4');
-console.log(hContact[5]);
+// Add two items to navigation
+allNav = document.getElementsByTagName("nav")[0];
+let createNewNode = (name) => {
+  let newNode = document.createElement("a");
+  newNode.innerHTML = name;
+  return newNode;
+}
+selectedNavLinks.prepend(createNewNode("Extra Item 1"));
+selectedNavLinks.append(createNewNode("Extra Item 2"));
